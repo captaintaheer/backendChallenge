@@ -14,4 +14,4 @@ Then clone this repository and run the following on command line:
 git clone [repo_url]`
 - `mvn install`
 - `mysql -u [username] -p [database_name] < tshirtshop.sql`
-- `Change the configuration file accordingly ("src/main/resources/config.properties")`
+- `Change the configuration file accordingly ("src/main/resources/application.properties")`
