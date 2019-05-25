@@ -36,7 +36,7 @@ public class ProductController {
         ProductSpecBuilder builder = new ProductSpecBuilder();
         String operationSetExper = Joiner.on("|").join(SearchOperations.SIMPLE_OPERATION_SET);
         Pattern pattern = Pattern.compile(
-                String.format("(\\w+?)(%snull", operationSetExper));
+                "(\\w+?)(" + operationSetExper + ")(\\p{Punct}?)(\\w+?)(\\p{Punct}?),");
         Matcher matcher = pattern.matcher(search + ",");
         while (matcher.find()) {
             builder.with(
@@ -48,7 +48,7 @@ public class ProductController {
         }
 
         Specification<Product> spec = builder.build();
-        return productRepo.findAll((Sort) spec);
+        return productRepo.findAll(spec);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/shoppingcart/add")

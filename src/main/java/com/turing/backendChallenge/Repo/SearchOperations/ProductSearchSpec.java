@@ -12,7 +12,13 @@ public class ProductSearchSpec implements Specification <Product> {
 
     private SearchCriteria criteria;
 
-    public ProductSearchSpec(SearchCriteria searchCriteria) {
+    public ProductSearchSpec(final SearchCriteria criteria) {
+        super();
+        this.criteria = criteria;
+    }
+
+    public SearchCriteria getCriteria() {
+        return criteria;
     }
 
     @Override
